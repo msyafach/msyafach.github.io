@@ -1,0 +1,15 @@
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.jumbotron {
+  padding-top: 6rem;
+  background-color: #e0e0e0;
+}
+
+#projects {
+  background-color: #e0e0e0;
+}
+
+section {
+  padding-top: 5rem;
+}
