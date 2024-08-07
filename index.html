@@ -51,7 +51,7 @@
     <section class="jumbotron text-center">
       <img src="img/syafa.jpg" alt="syafa.jpg" width="200" class="rounded-circle img-thumbnail" />
       <h1 class="display-5 poppins-bold">Muhammad Syafa Choirul Habib</h1>
-      <p class="lead poppins-regular">Engineer | Data analyst</p>
+      <p class="lead poppins-regular typed-out"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#d3ebec"
@@ -105,7 +105,7 @@
     <section id="projects">
       <div class="container">
         <div class="row text-center mb-3">
-          <div class="col" data-aos="fade-in" data-aos-offset="250" data-aos-delay="200">
+          <div class="col" data-aos="fade-in" data-aos-offset="150" data-aos-delay="200">
             <h2>My Projects</h2>
           </div>
         </div>
@@ -269,6 +269,13 @@
     <script>
       AOS.init();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.to(".lead", { duration: 2, delay: 0.5, text: "Engineer | Data analyst" });
+    </script>
+
     <script type="text/javascript">
       var divElement = document.getElementById("viz1722875187993");
       var vizElement = divElement.getElementsByTagName("object")[0];
