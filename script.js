@@ -66,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 // Contact form handling
+// Telegram Bot configuration
+const TELEGRAM_BOT_TOKEN = "7633063242:AAHKGy4bb84_nS47v3bN0OQzzT_o0dqCmNo"
+const TELEGRAM_CHAT_ID = "2142354455"
+
 const contactForm = document.getElementById("contact-form")
 
 contactForm.addEventListener("submit", (e) => {
@@ -90,20 +94,51 @@ contactForm.addEventListener("submit", (e) => {
     return
   }
 
-  // Simulate form submission (replace with actual form handling)
+  // Prepare UI feedback
   const submitButton = contactForm.querySelector('button[type="submit"]')
   const originalText = submitButton.textContent
 
   submitButton.textContent = "Sending..."
   submitButton.disabled = true
 
-  // Simulate API call
-  setTimeout(() => {
-    alert("Thank you for your message! I'll get back to you soon.")
-    contactForm.reset()
-    submitButton.textContent = originalText
-    submitButton.disabled = false
-  }, 1500)
+  // Compose Telegram message in HTML format
+  const telegramMessage = (
+    `<b>New Contact Form Submission</b>\n\n` +
+    `<b>Name:</b> ${name}\n` +
+    `<b>Email:</b> ${email}\n` +
+    `<b>Message:</b>\n${message}`
+  ).trim()
+
+  // Send message via Telegram Bot API
+  fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: telegramMessage,
+      parse_mode: "HTML",
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.ok) {
+        alert("Thank you for your message! I'll get back to you soon.")
+        contactForm.reset()
+      } else {
+        console.error("Telegram API error:", data)
+        alert("Sorry, there was an issue sending your message. Please try again later.")
+      }
+    })
+    .catch((error) => {
+      console.error("Network error:", error)
+      alert("Network error occurred. Please check your connection and try again.")
+    })
+    .finally(() => {
+      submitButton.textContent = originalText
+      submitButton.disabled = false
+    })
 })
 
 // Add typing effect to hero title

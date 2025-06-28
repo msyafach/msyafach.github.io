@@ -236,6 +236,12 @@ body {
   background: #f8f9fa;
 }
 
+.profile-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Projects Section */
 .projects {
   padding: 100px 0;
@@ -1261,5 +1267,28 @@ body {
 
   .image-placeholder-content p {
     font-size: 0.8rem;
+  }
+}
+
+.project-image-carousel {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.project-image-carousel img {
+  flex: 1 1 50%;
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .project-image-carousel {
+    flex-direction: column;
+  }
+  .project-image-carousel img {
+    width: 100%;
   }
 }
