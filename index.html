@@ -1,245 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Portfolio</title>
-    <!-- bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <!-- bootstrap icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <!-- Animate On Scroll -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- my css -->
-    <link rel="stylesheet" href="css/style.css" />
-
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap" rel="stylesheet" />
-  </head>
-  <body id="home">
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top border-body" style="background-color: #d3ebec">
-      <div class="container">
-        <img class="rounded-circle" src="img/jettpng.png" width="30" alt="logo" />
-        <a class="navbar-brand poppins-bold" href="#">MSCH</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end nav-underline poppins-regular" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Syafa - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Muhammad Syafa</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-      </div>
     </nav>
-    <!-- akhir navbar -->
 
-    <!-- Jumbotron -->
-    <section class="jumbotron text-center">
-      <img src="img/syafa.jpg" alt="syafa.jpg" width="200" class="rounded-circle img-thumbnail" />
-      <h1 class="display-5 poppins-bold">Muhammad Syafa Choirul Habib</h1>
-      <p class="lead poppins-regular typed-out"></p>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#d3ebec"
-          fill-opacity="1"
-          d="M0,224L48,224C96,224,192,224,288,234.7C384,245,480,267,576,234.7C672,203,768,117,864,117.3C960,117,1056,203,1152,213.3C1248,224,1344,160,1392,128L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- Akhir jumbotron -->
-
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="row text-center mb-3">
-          <div class="col" data-aos="fade-in" data-aos-offset="250" data-aos-delay="300" data-aos-once="true">
-            <h2>About me</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center poppins-regular">
-          <div class="col-md-4" data-aos="fade-right" data-aos-offset="250" data-aos-once="true">
-            <p>
-              Hello! I'm Muhammad Syafa Choirul Habib, though most people call me Syafa. I'm an engineer with a profound passion for the data field, where I've found the perfect blend of technology and analytical thinking. My journey into
-              data started during my university years, where I immersed myself in learning the techniques and tools that power today’s data-driven industries.
-            </p>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-aos-offset="250" data-aos-once="true">
-            <p>
-              I’ve honed my skills in data analytics using powerful tools like SQL (MySQL), Spark, and Tableau. These tools have not only enhanced my technical abilities but also my problem-solving skills, enabling me to extract meaningful
-              insights from complex datasets. My hands-on experience ranges from writing efficient queries and managing databases to visualizing data trends that inform strategic decisions.
-            </p>
-          </div>
-          <div class="col-md-4" data-aos="fade-left" data-aos-delay="400" data-aos-offset="250" data-aos-once="true">
-            <p>
-              In addition to my technical expertise, I bring a collaborative spirit to every project. I enjoy working in teams, sharing knowledge, and learning from others. I’m excited about the opportunities in the data industry and look
-              forward to applying my skills to help businesses make informed, data-driven decisions. Whether it's through optimizing processes, enhancing customer experiences, or driving growth, I'm ready to make a meaningful impact.
-            </p>
-          </div>
-        </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#9fd4d6"
-          fill-opacity="1"
-          d="M0,160L48,154.7C96,149,192,139,288,160C384,181,480,235,576,229.3C672,224,768,160,864,154.7C960,149,1056,203,1152,192C1248,181,1344,107,1392,69.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- Akhir about -->
-
-    <!-- projects -->
-    <section id="projects">
-      <div class="container">
-        <div class="row text-center mb-3">
-          <div class="col" data-aos="fade-in" data-aos-offset="150" data-aos-delay="200" data-aos-once="true">
-            <h2>My Projects</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-4 mb-3" data-aos="fade-up-right" data-aos-offset="250" data-aos-delay="150" data-aos-once="true">
-            <div class="card text-bg-light">
-              <img src="img/projects/dash3.png" class="card-img-top" alt="dashboard-tableau-1" />
-              <div class="card-body">
-                <h5 class="poppins-bold">Netflix Subscription Analysis</h5>
-                <p class="card-text poppins-regular">
-                  Conducted analysis in SQL to surface insights on sales trends and SaaS metrics for self created netflix dataset containing 2.5k subscription records. Worked independently to clean and analyze data in SQL and built
-                  performance dashboard in Tableau to visualize trends related to subscription type and regions. Surface insights and recommendations geared towards sales and marketing teams.
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Muhammad Syafa</span>
+                </h1>
+                <p class="hero-subtitle">Data Engineer & Developer</p>
+                <p class="hero-description">
+                    I build data solutions and applications that solve real-world problems. 
+                    Passionate about AI, data processing, and creating efficient systems.
                 </p>
-                <a href="https://msyafach.github.io/netflix_subscription_analysis/" class="btn text-bg-success">Analysis</a>
-              </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="hero-social">
+                    <a href="https://www.linkedin.com/in/msyafach" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                    <a href="https://msyafach.github.io/" target="_blank" class="social-icon" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:msyafach@gmail.com" class="social-icon" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
+                    <a href="tel:+6285388495784" class="social-icon" aria-label="Phone">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-offset="250" data-aos-delay="350" data-aos-once="true">
-            <div class="card">
-              <img src="img/projects/dash4.png" class="card-img-top" alt="dashboard-tableau-2" />
-              <div class="card-body">
-                <p class="card-text poppins-regular">
-                  Analyzed 100 k rows of sales data in SQL and Phyton, uesed tableau to create astonishing dashboard to help identify and visualize sales trend, collaborated with my actuarial science colleague to gain deeper insight from
-                  the data.
-                </p>
-              </div>
+            <div class="hero-image">
+                <div class="profile-placeholder">
+                    <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+                        <circle cx="75" cy="60" r="25" fill="#000"/>
+                        <path d="M45 105 Q75 90 105 105 L105 150 L45 150 Z" fill="#000"/>
+                    </svg>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4 mb-3" data-aos="fade-up-left" data-aos-offset="250" data-aos-delay="150" data-aos-once="true">
-            <div class="card">
-              <img src="img/comingsoon.jpg" class="card-img-top" alt="dashboard-tableau-3" />
-              <div class="card-body">
-                <p class="card-text">Coming soon !!</p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#d3ebec"
-          fill-opacity="1"
-          d="M0,224L48,208C96,192,192,160,288,165.3C384,171,480,213,576,208C672,203,768,149,864,154.7C960,160,1056,224,1152,261.3C1248,299,1344,309,1392,314.7L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
     </section>
-    <!-- akhir projects -->
-    <!-- contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col text-center mb-3">
-            <h2>Contact Me</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center mb-3">
-          <div class="col-md-8">
-            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
-              <strong>Thank you!</strong> Your response has been recorded.
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <form name="form-responses">
-              <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" name="fullname" />
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" />
-              </div>
-              <div class="mb-3">
-                <label for="pesan" class="form-label">Message</label>
-                <textarea class="form-control" id="pesan" rows="3" name="message"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-kirim">Send</button>
-              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
-                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                <span role="status">Loading...</span>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#444141"
-          fill-opacity="1"
-          d="M0,256L48,261.3C96,267,192,277,288,277.3C384,277,480,267,576,261.3C672,256,768,256,864,240C960,224,1056,192,1152,197.3C1248,203,1344,245,1392,266.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-    </section>
-    <!-- Akhir contact -->
 
-    <!-- footer -->
-    <footer class="foot text-white text-center pb-5" style="background-color: rgb(68, 65, 65)">
-      <p>Created with <i class="bi bi-suit-heart-fill text-danger"></i> by <a class="text-white" href="https://www.instagram.com/m_syafa_ch/">Muhammad Syafa</a></p>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-subtitle">
+                Here are some of the projects I've worked on, showcasing my skills in data engineering, AI, and software development.
+            </p>
+            
+            <!-- Academic Style Project Layout -->
+            <div class="academic-projects-section">
+                <h3 class="academic-section-title">Featured Work</h3>
+                
+                <div class="academic-project-grid">
+                    <!-- Project 1 - Academic Style -->
+                    <div class="academic-project-card">
+                        <div class="academic-project-info">
+                            <div class="academic-project-meta">
+                                <div class="meta-item">
+                                    <h4>Project Title</h4>
+                                    <p>Data Entry and Audit System</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Year Accomplished</h4>
+                                    <p>2024</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Role/Position</h4>
+                                    <p>Lead Data Engineer & System Architect</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Publication Link</h4>
+                                    <a href="#" class="publication-link">View Project Details</a>
+                                </div>
+                            </div>
+                            
+                            <div class="academic-project-description">
+                                <h4>Project Description</h4>
+                                <p>
+                                    Advanced OCR-powered data processing system that demonstrates comprehensive automation 
+                                    capabilities in audit processes, including intelligent document classification, 
+                                    real-time data validation, and automated compliance reporting. The system leverages 
+                                    AWS Textract for document processing and implements machine learning algorithms 
+                                    for pattern recognition and anomaly detection.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="academic-project-visual">
+                            <div class="project-image-placeholder">
+                                <div class="image-placeholder-content">
+                                    <h5>Project Screenshot/Demo</h5>
+                                    <p>
+                                        Visual demonstration of the system interface, showcasing document processing 
+                                        workflow and real-time analytics dashboard. Screenshots highlight the 
+                                        user-friendly design and comprehensive data visualization capabilities.
+                                    </p>
+                                    <div class="placeholder-mockup">
+                                        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
+                                            <rect width="400" height="200" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
+                                            <rect x="20" y="20" width="100" height="60" rx="4" fill="#000" opacity="0.1"/>
+                                            <text x="70" y="55" text-anchor="middle" fill="#666" font-size="10">Document Input</text>
+                                            
+                                            <path d="M130 50 L150 50" stroke="#666" stroke-width="2" marker-end="url(#arrow-academic)"/>
+                                            
+                                            <rect x="160" y="20" width="100" height="60" rx="4" fill="#000" opacity="0.1"/>
+                                            <text x="210" y="55" text-anchor="middle" fill="#666" font-size="10">OCR Processing</text>
+                                            
+                                            <path d="M270 50 L290 50" stroke="#666" stroke-width="2" marker-end="url(#arrow-academic)"/>
+                                            
+                                            <rect x="300" y="20" width="80" height="60" rx="4" fill="#000" opacity="0.1"/>
+                                            <text x="340" y="55" text-anchor="middle" fill="#666" font-size="10">Output</text>
+                                            
+                                            <rect x="20" y="100" width="360" height="80" rx="4" fill="#fff" stroke="#ddd"/>
+                                            <text x="30" y="120" fill="#666" font-size="10">System Dashboard - Real-time Analytics</text>
+                                            <line x1="30" y1="130" x2="370" y2="130" stroke="#eee"/>
+                                            <rect x="30" y="140" width="60" height="30" fill="#000" opacity="0.1"/>
+                                            <rect x="100" y="140" width="60" height="30" fill="#666" opacity="0.1"/>
+                                            <rect x="170" y="140" width="60" height="30" fill="#000" opacity="0.1"/>
+                                            
+                                            <defs>
+                                                <marker id="arrow-academic" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                    <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+                                                </marker>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-counter">Project 1 of 3</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 - Academic Style -->
+                    <div class="academic-project-card">
+                        <div class="academic-project-info">
+                            <div class="academic-project-meta">
+                                <div class="meta-item">
+                                    <h4>Project Title</h4>
+                                    <p>Graph Database for Financial Audit</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Year Accomplished</h4>
+                                    <p>2023</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Role/Position</h4>
+                                    <p>Database Architect & Analytics Developer</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Publication Link</h4>
+                                    <a href="#" class="publication-link">View Project Details</a>
+                                </div>
+                            </div>
+                            
+                            <div class="academic-project-description">
+                                <h4>Project Description</h4>
+                                <p>
+                                    Neo4j-powered graph database solution designed for complex financial audit processes, 
+                                    enabling comprehensive relationship mapping and fraud detection. The system implements 
+                                    advanced Cypher queries for pattern recognition, real-time anomaly detection algorithms, 
+                                    and interactive visualization dashboards for audit trail analysis and compliance reporting.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="academic-project-visual">
+                            <div class="project-image-placeholder">
+                                <div class="image-placeholder-content">
+                                    <h5>Graph Visualization Interface</h5>
+                                    <p>
+                                        Interactive network visualization showing entity relationships, transaction flows, 
+                                        and suspicious pattern detection. The interface demonstrates complex query 
+                                        capabilities and real-time fraud detection algorithms.
+                                    </p>
+                                    <div class="placeholder-mockup">
+                                        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
+                                            <rect width="400" height="200" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
+                                            
+                                            <!-- Graph nodes -->
+                                            <circle cx="80" cy="60" r="15" fill="#000" opacity="0.8"/>
+                                            <text x="80" y="65" text-anchor="middle" fill="#fff" font-size="8">User</text>
+                                            
+                                            <circle cx="200" cy="50" r="15" fill="#666" opacity="0.8"/>
+                                            <text x="200" y="55" text-anchor="middle" fill="#fff" font-size="8">Txn</text>
+                                            
+                                            <circle cx="320" cy="60" r="15" fill="#000" opacity="0.8"/>
+                                            <text x="320" y="65" text-anchor="middle" fill="#fff" font-size="8">Account</text>
+                                            
+                                            <circle cx="120" cy="120" r="15" fill="#666" opacity="0.8"/>
+                                            <text x="120" y="125" text-anchor="middle" fill="#fff" font-size="8">Audit</text>
+                                            
+                                            <circle cx="280" cy="120" r="15" fill="#000" opacity="0.8"/>
+                                            <text x="280" y="125" text-anchor="middle" fill="#fff" font-size="8">Risk</text>
+                                            
+                                            <!-- Connections -->
+                                            <line x1="95" y1="60" x2="185" y2="50" stroke="#333" stroke-width="2"/>
+                                            <line x1="215" y1="50" x2="305" y2="60" stroke="#333" stroke-width="2"/>
+                                            <line x1="80" y1="75" x2="120" y2="105" stroke="#666" stroke-width="2"/>
+                                            <line x1="200" y1="65" x2="120" y2="105" stroke="#666" stroke-width="2"/>
+                                            <line x1="320" y1="75" x2="280" y2="105" stroke="#333" stroke-width="2"/>
+                                            <line x1="135" y1="120" x2="265" y2="120" stroke="#666" stroke-width="2"/>
+                                            
+                                            <!-- Query panel -->
+                                            <rect x="20" y="150" width="360" height="40" rx="4" fill="#000" opacity="0.1"/>
+                                            <text x="30" y="165" fill="#333" font-size="9" font-family="monospace">MATCH (u:User)-[:TRANSACTED]->(t:Transaction)</text>
+                                            <text x="30" y="180" fill="#333" font-size="9" font-family="monospace">WHERE t.amount > 10000 RETURN u, t</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-counter">Project 2 of 3</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 - Academic Style -->
+                    <div class="academic-project-card">
+                        <div class="academic-project-info">
+                            <div class="academic-project-meta">
+                                <div class="meta-item">
+                                    <h4>Project Title</h4>
+                                    <p>Sales Analytics & Business Intelligence Platform</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Year Accomplished</h4>
+                                    <p>2024</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Role/Position</h4>
+                                    <p>Data Scientist & BI Developer</p>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <h4>Publication Link</h4>
+                                    <a href="#" class="publication-link">View Project Details</a>
+                                </div>
+                            </div>
+                            
+                            <div class="academic-project-description">
+                                <h4>Project Description</h4>
+                                <p>
+                                    Comprehensive business intelligence platform processing millions of transaction records 
+                                    to generate actionable insights through advanced analytics and machine learning. 
+                                    Features real-time dashboard visualization, predictive forecasting models, customer 
+                                    segmentation analysis, and automated reporting systems with integration capabilities 
+                                    for enterprise CRM and ERP platforms.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="academic-project-visual">
+                            <div class="project-image-placeholder">
+                                <div class="image-placeholder-content">
+                                    <h5>Analytics Dashboard Interface</h5>
+                                    <p>
+                                        Real-time business intelligence dashboard showcasing key performance indicators, 
+                                        trend analysis, and predictive analytics. The interface demonstrates advanced 
+                                        data visualization and interactive reporting capabilities.
+                                    </p>
+                                    <div class="placeholder-mockup">
+                                        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
+                                            <rect width="400" height="200" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
+                                            
+                                            <!-- KPI Cards -->
+                                            <rect x="20" y="20" width="80" height="50" rx="4" fill="#000" opacity="0.1"/>
+                                            <text x="60" y="35" text-anchor="middle" fill="#333" font-size="8">Revenue</text>
+                                            <text x="60" y="50" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">$2.4M</text>
+                                            <text x="60" y="62" text-anchor="middle" fill="#666" font-size="7">+15%</text>
+                                            
+                                            <rect x="110" y="20" width="80" height="50" rx="4" fill="#666" opacity="0.1"/>
+                                            <text x="150" y="35" text-anchor="middle" fill="#333" font-size="8">Customers</text>
+                                            <text x="150" y="50" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">12.8K</text>
+                                            <text x="150" y="62" text-anchor="middle" fill="#666" font-size="7">+8%</text>
+                                            
+                                            <rect x="200" y="20" width="80" height="50" rx="4" fill="#000" opacity="0.1"/>
+                                            <text x="240" y="35" text-anchor="middle" fill="#333" font-size="8">Conversion</text>
+                                            <text x="240" y="50" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">3.2%</text>
+                                            <text x="240" y="62" text-anchor="middle" fill="#666" font-size="7">+0.5%</text>
+                                            
+                                            <!-- Chart Area -->
+                                            <rect x="20" y="90" width="360" height="90" rx="4" fill="#fff" stroke="#ddd"/>
+                                            <text x="30" y="105" fill="#333" font-size="9" font-weight="600">Sales Performance Trend</text>
+                                            
+                                            <!-- Trend Line -->
+                                            <polyline points="30,160 70,150 110,140 150,130 190,135 230,125 270,120 310,115 350,110" 
+                                                     fill="none" stroke="#000" stroke-width="2"/>
+                                            
+                                            <!-- Data Points -->
+                                            <circle cx="70" cy="150" r="2" fill="#000"/>
+                                            <circle cx="150" cy="130" r="2" fill="#000"/>
+                                            <circle cx="230" cy="125" r="2" fill="#000"/>
+                                            <circle cx="310" cy="115" r="2" fill="#000"/>
+                                            
+                                            <!-- Legend -->
+                                            <rect x="290" y="20" width="90" height="50" rx="4" fill="#fff" stroke="#ddd"/>
+                                            <text x="300" y="35" fill="#333" font-size="8">Forecast Accuracy</text>
+                                            <text x="300" y="50" fill="#000" font-size="10" font-weight="bold">92%</text>
+                                            <text x="300" y="62" fill="#666" font-size="7">ML Prediction</text>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-counter">Project 3 of 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="skills-section">
+                <h3 class="skills-title">Technologies I Work With</h3>
+                <div class="skills-grid">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Neo4j</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">AWS Textract</span>
+                    <span class="skill-tag">Shell Scripting</span>
+                    <span class="skill-tag">Data Science</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">OCR</span>
+                    <span class="skill-tag">Graph Databases</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-body">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">
+                Interested in collaborating on a project or have a question? I'd love to hear from you!
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:msyafach@gmail.com">msyafach@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <a href="https://www.linkedin.com/in/msyafach" target="_blank">linkedin.com/in/msyafach</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                            <div>
+                                <strong>GitHub</strong>
+                                <a href="https://msyafach.github.io/" target="_blank">msyafach.github.io</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="social-media-section">
+                        <h4>Connect with me</h4>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/msyafach" target="_blank" class="social-icon-circle" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                    <rect x="2" y="9" width="4" height="12"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </a>
+                            <a href="https://msyafach.github.io/" target="_blank" class="social-icon-circle" aria-label="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                            </a>
+                            <a href="mailto:msyafach@gmail.com" class="social-icon-circle" aria-label="Email">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <path d="M2 3l10 7L22 3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Muhammad Syafa. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/msyafach" target="_blank" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                    <a href="https://msyafach.github.io/" target="_blank" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:msyafach@gmail.com" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M2 3l10 7L22 3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
-    <!-- Akhir footer -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-      const scriptURL = "https://script.google.com/macros/s/AKfycbxArgaYuFg4BF4wPS-ZQRnrvlyL6gbyfIfDlC6WMBpv8cs4iTsDfIn8LzEyWgOb1BNq/exec";
-      const form = document.forms["form-responses"];
-      const btnSend = document.querySelector(".btn-kirim");
-      const btnLoading = document.querySelector(".btn-loading");
-      const myAlert = document.querySelector(".my-alert");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        //ketika tombol send di klik
-        // tampilkan tombol loading, hilangkan tombol kirim
-        btnLoading.classList.toggle("d-none");
-        btnSend.classList.toggle("d-none");
-
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => {
-            btnLoading.classList.toggle("d-none");
-            btnSend.classList.toggle("d-none");
-            myAlert.classList.toggle("d-none");
-            console.log("Success!", response);
-            form.reset();
-          })
-          .catch((error) => console.error("Error!", error.message));
-      });
-    </script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
-    <script>
-      gsap.registerPlugin(TextPlugin);
-      gsap.to(".lead", { duration: 2, delay: 0.5, text: "Engineer | Data analyst" });
-    </script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
