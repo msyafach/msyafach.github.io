@@ -1,452 +1,380 @@
-// Mobile Navigation Toggle
-const hamburger = document.getElementById("hamburger")
-const navMenu = document.getElementById("nav-menu")
+// Initialize Lenis Smooth Scroll
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+    mouseMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+});
 
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("active")
-})
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll(".nav-link").forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active")
-  })
-})
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute("href"))
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
-    }
-  })
-})
-
-// Navbar background on scroll
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar")
-  if (window.scrollY > 50) {
-    navbar.style.background = "rgba(255, 255, 255, 0.98)"
-    navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)"
-  } else {
-    navbar.style.background = "rgba(255, 255, 255, 0.95)"
-    navbar.style.boxShadow = "none"
-  }
-})
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px",
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible")
-    }
-  })
-}, observerOptions)
+requestAnimationFrame(raf);
 
-// Add fade-in class to elements and observe them
-document.addEventListener("DOMContentLoaded", () => {
-  const elementsToAnimate = document.querySelectorAll(
-    ".section-title, .project-card, .skills-section, .contact-content",
-  )
+// GSAP Registration
+gsap.registerPlugin(ScrollTrigger);
 
-  elementsToAnimate.forEach((el) => {
-    el.classList.add("fade-in")
-    observer.observe(el)
-  })
-})
+// Custom Cursor Logic
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorOutline = document.querySelector('.cursor-outline');
 
-// Contact form handling
-// Telegram Bot configuration
-const TELEGRAM_BOT_TOKEN = "7633063242:AAHKGy4bb84_nS47v3bN0OQzzT_o0dqCmNo"
-const TELEGRAM_CHAT_ID = "2142354455"
+// Enable custom cursor only if elements exist
+if (cursorDot && cursorOutline) {
+    document.body.classList.add('custom-cursor-enabled');
 
-const contactForm = document.getElementById("contact-form")
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault()
+        // Dot follows instantly
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
 
-  // Get form data
-  const formData = new FormData(contactForm)
-  const name = formData.get("name")
-  const email = formData.get("email")
-  const message = formData.get("message")
-
-  // Simple validation
-  if (!name || !email || !message) {
-    alert("Please fill in all fields.")
-    return
-  }
-
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address.")
-    return
-  }
-
-  // Prepare UI feedback
-  const submitButton = contactForm.querySelector('button[type="submit"]')
-  const originalText = submitButton.textContent
-
-  submitButton.textContent = "Sending..."
-  submitButton.disabled = true
-
-  // Compose Telegram message in HTML format
-  const telegramMessage = (
-    `<b>New Contact Form Submission</b>\n\n` +
-    `<b>Name:</b> ${name}\n` +
-    `<b>Email:</b> ${email}\n` +
-    `<b>Message:</b>\n${message}`
-  ).trim()
-
-  // Send message via Telegram Bot API
-  fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      chat_id: TELEGRAM_CHAT_ID,
-      text: telegramMessage,
-      parse_mode: "HTML",
-    }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.ok) {
-        alert("Thank you for your message! I'll get back to you soon.")
-        contactForm.reset()
-      } else {
-        console.error("Telegram API error:", data)
-        alert("Sorry, there was an issue sending your message. Please try again later.")
-      }
-    })
-    .catch((error) => {
-      console.error("Network error:", error)
-      alert("Network error occurred. Please check your connection and try again.")
-    })
-    .finally(() => {
-      submitButton.textContent = originalText
-      submitButton.disabled = false
-    })
-})
-
-// Add typing effect to hero title
-function typeWriter(element, text, speed = 100) {
-  let i = 0
-  element.innerHTML = ""
-
-  function type() {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i)
-      i++
-      setTimeout(type, speed)
-    }
-  }
-
-  type()
+        // Outline follows with delay (using animate for smoothness)
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
 }
 
-// Initialize typing effect when page loads
-window.addEventListener("load", () => {
-  const heroTitle = document.querySelector(".hero-title")
-  if (heroTitle) {
-    const originalText = heroTitle.textContent
+// Add hover effect to interactive elements
+const interactiveElements = document.querySelectorAll('a, button, .project-card');
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.backgroundColor = 'transparent';
+    });
+});
 
-    // Add a small delay before starting the typing effect
-    setTimeout(() => {
-      typeWriter(heroTitle, originalText, 50)
-    }, 500)
-  }
-})
+// Canvas Particle Background
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
 
-// Add parallax effect to hero section
-window.addEventListener("scroll", () => {
-  const scrolled = window.pageYOffset
-  const hero = document.querySelector(".hero")
-  const rate = scrolled * -0.5
+let particlesArray;
 
-  if (hero) {
-    hero.style.transform = `translateY(${rate}px)`
-  }
-})
+// Set canvas size
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Add active navigation link highlighting
-window.addEventListener("scroll", () => {
-  const sections = document.querySelectorAll("section[id]")
-  const navLinks = document.querySelectorAll(".nav-link")
-
-  let current = ""
-
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop
-    const sectionHeight = section.clientHeight
-
-    if (window.pageYOffset >= sectionTop - 200) {
-      current = section.getAttribute("id")
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.directionX = (Math.random() * 0.4) - 0.2;
+        this.directionY = (Math.random() * 0.4) - 0.2;
+        this.size = Math.random() * 2;
+        this.color = 'rgba(255, 255, 255, 0.1)';
     }
-  })
 
-  navLinks.forEach((link) => {
-    link.classList.remove("active")
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active")
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+        ctx.fillStyle = this.color;
+        ctx.fill();
     }
-  })
-})
 
-// Project Navigation and Showcase
-const projectNavBtns = document.querySelectorAll(".project-nav-btn")
-const projectSlides = document.querySelectorAll(".project-slide")
-
-projectNavBtns.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    // Remove active class from all buttons and slides
-    projectNavBtns.forEach((b) => b.classList.remove("active"))
-    projectSlides.forEach((s) => s.classList.remove("active"))
-
-    // Add active class to clicked button and corresponding slide
-    btn.classList.add("active")
-    const targetProject = btn.getAttribute("data-project")
-    const targetSlide = document.querySelector(`.project-slide[data-project="${targetProject}"]`)
-    if (targetSlide) {
-      targetSlide.classList.add("active")
+    update() {
+        if (this.x > canvas.width || this.x < 0) {
+            this.directionX = -this.directionX;
+        }
+        if (this.y > canvas.height || this.y < 0) {
+            this.directionY = -this.directionY;
+        }
+        this.x += this.directionX;
+        this.y += this.directionY;
+        this.draw();
     }
-  })
-})
+}
 
-// Project Modal Functionality
-const modal = document.getElementById("project-modal")
-const modalBody = document.getElementById("modal-body")
-const modalClose = document.querySelector(".modal-close")
+function initParticles() {
+    particlesArray = [];
+    let numberOfParticles = (canvas.height * canvas.width) / 9000;
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
 
-// Project data for modals
-const projectData = [
-  {
-    title: "Data Entry and Audit System",
-    description:
-      "Advanced OCR-powered data processing system that revolutionizes document handling in audit processes.",
-    fullDescription: `This comprehensive system leverages AWS Textract's advanced OCR capabilities to automatically process various document formats including PDFs, images, and scanned documents. The system features intelligent data validation, real-time error detection, and automated audit trail generation.
+function animateParticles() {
+    requestAnimationFrame(animateParticles);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+    }
+}
 
-        The solution has been deployed in production environments where it processes thousands of documents daily, achieving a 99.5% accuracy rate while reducing manual data entry time by 80%. The system includes a RESTful API for seamless integration with existing audit workflows and supports batch processing for large document volumes.`,
-    features: [
-      "Intelligent document classification and routing",
-      "Multi-language OCR support with 99.5% accuracy",
-      "Real-time data validation and error correction",
-      "Automated audit trail and compliance reporting",
-      "RESTful API with comprehensive documentation",
-      "Batch processing capabilities for high-volume operations",
-      "Integration with popular audit software platforms",
-      "Advanced security features including data encryption",
-    ],
-    technologies: [
-      "AWS Textract",
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "Docker",
-      "Redis",
-      "Celery",
-      "JWT Authentication",
-    ],
-    metrics: {
-      "Processing Speed": "500+ documents/hour",
-      "Accuracy Rate": "99.5%",
-      "Time Savings": "80% reduction",
-      "Cost Reduction": "60% operational cost savings",
+initParticles();
+animateParticles();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+});
+
+// GSAP Animations
+
+// Hero Animations
+const heroTimeline = gsap.timeline();
+
+heroTimeline
+    .to('.hero-label', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+    .to('.line', { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }, '-=0.4')
+    .to('.hero-description', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+    .to('.hero-actions', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
+
+// Scroll Animations
+gsap.utils.toArray('.reveal-text').forEach(text => {
+    gsap.from(text, {
+        scrollTrigger: {
+            trigger: text,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+    });
+});
+
+gsap.utils.toArray('.project-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+        },
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        delay: i * 0.1, // Stagger effect
+        ease: 'power3.out'
+    });
+});
+
+// Vanilla Tilt Initialization
+VanillaTilt.init(document.querySelectorAll(".project-card"), {
+    max: 5,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
+});
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    // Note: In a real production app, you'd want a better toggle class logic for animation
+    // For this implementation, we'll keep it simple or add a class
+    navMenu.classList.toggle('active');
+});
+
+// Project Modal Logic
+const modal = document.getElementById('project-modal');
+const modalContent = document.getElementById('modal-content');
+
+const projectDetails = [
+    {
+        title: "Murakabi Property",
+        desc: "A modern real-estate landing page built with vanilla web technologies.",
+        content: `
+            <h3>Overview</h3>
+            <p>This project was designed to showcase luxury properties with a focus on visual storytelling. The challenge was to create a high-performance landing page without heavy frameworks.</p>
+            <h3>Tech Stack</h3>
+            <div class="skill-tags" style="margin-top: 1rem;">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            </div>
+        `
     },
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Graph Database for Audit",
-    description: "Neo4j-powered graph database system for complex audit trail analysis and relationship mapping.",
-    fullDescription: `This sophisticated graph database solution is designed specifically for financial audit processes, enabling auditors to visualize complex relationships between entities, transactions, and accounts. Built on Neo4j, the system provides powerful querying capabilities using Cypher and includes advanced fraud detection algorithms.
-
-        The platform features an interactive visualization dashboard that allows auditors to explore data relationships intuitively. It includes automated pattern recognition for suspicious activities and generates comprehensive reports for compliance purposes.`,
-    features: [
-      "Complex relationship mapping and visualization",
-      "Advanced Cypher query optimization for performance",
-      "Real-time fraud detection with machine learning",
-      "Interactive graph visualization dashboard",
-      "Automated suspicious pattern alerts and notifications",
-      "Comprehensive audit reporting and compliance tools",
-      "Multi-dimensional data analysis capabilities",
-      "Integration with existing audit management systems",
-    ],
-    technologies: ["Neo4j", "Cypher", "Python", "D3.js", "React", "GraphQL", "Node.js", "Machine Learning"],
-    metrics: {
-      "Query Performance": "Sub-second response times",
-      "Data Relationships": "Millions of connected entities",
-      "Fraud Detection": "95% accuracy rate",
-      "Processing Volume": "10M+ transactions daily",
+    {
+        title: "Audit Graph DB",
+        desc: "Neo4j-powered graph database solution for financial audit trails.",
+        content: `
+            <h3>Overview</h3>
+            <p>A complex system designed to detect fraud patterns in financial transactions. By leveraging graph theory, we could identify circular transaction loops that traditional SQL databases missed.</p>
+            <h3>Key Features</h3>
+            <div class="skill-tags" style="margin-top: 1rem;">
+                <span>Real-time fraud detection</span>
+                <span>Interactive graph visualization</span>
+                <span>Cypher query optimization</span>
+            </div>
+            <h3>Tech Stack</h3>
+            <div class="skill-tags" style="margin-top: 1rem;">
+                <span>Neo4j</span><span>Python</span><span>React</span><span>D3.js</span>
+            </div>
+        `
     },
-    github: "#",
-    demo: "#",
-  },
-  {
-    title: "Sales Analytics Dashboard",
-    description: "Comprehensive sales data analysis platform processing millions of transaction records.",
-    fullDescription: `A powerful business intelligence platform that transforms raw sales data into actionable insights. The dashboard processes millions of transaction records in real-time, providing comprehensive analytics, predictive modeling, and strategic recommendations for sales optimization.
+    {
+        title: "Sales Intelligence",
+        desc: "BI platform processing millions of records for predictive analytics.",
+        content: `
+            <h3>Overview</h3>
+            <p>This platform aggregates data from multiple sources to provide real-time insights into sales performance. It uses machine learning models to forecast future trends with 92% accuracy.</p>
+            <h3>Impact</h3>
+            <p>Helped the client identify underperforming regions and optimize their inventory distribution, resulting in a 15% revenue increase.</p>
+            <h3>Tech Stack</h3>
+            <div class="skill-tags" style="margin-top: 1rem;">
+                <span>Python</span><span>PostgreSQL</span><span>Streamlit</span><span>Scikit-learn</span>
+            </div>
+        `
+    }
+];
 
-        The system features advanced data visualization, customer segmentation analysis, and predictive forecasting capabilities. It includes automated reporting, alert systems, and integration with popular CRM platforms.`,
-    features: [
-      "Real-time sales performance monitoring and KPI tracking",
-      "Advanced predictive analytics and sales forecasting",
-      "Customer segmentation and behavioral analysis",
-      "Interactive data visualization with drill-down capabilities",
-      "Automated reporting and intelligent alert systems",
-      "Integration with CRM and ERP systems",
-      "Mobile-responsive dashboard for on-the-go access",
-      "Custom report generation and scheduling",
-    ],
-    technologies: ["Python", "SQL", "Pandas", "Plotly", "Streamlit", "PostgreSQL", "Apache Airflow", "Scikit-learn"],
-    metrics: {
-      "Data Processing": "10M+ records daily",
-      "Report Generation": "Real-time updates",
-      "Forecast Accuracy": "92% prediction accuracy",
-      "User Adoption": "500+ active users",
-    },
-    github: "#",
-    demo: "#",
-  },
-]
+window.openProjectModal = (index) => {
+    const project = projectDetails[index];
+    if (!project) return;
 
-function openProjectModal(projectIndex) {
-  const project = projectData[projectIndex]
-
-  modalBody.innerHTML = `
-        <div class="modal-project-header">
-            <h2>${project.title}</h2>
-            <p class="modal-project-description">${project.description}</p>
+    modalContent.innerHTML = `
+        <h2 class="section-title" style="font-size: 2rem; margin-bottom: 0.5rem;">${project.title}</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">${project.desc}</p>
+        <div class="modal-details">
+            ${project.content}
         </div>
-        
-        <div class="modal-project-content">
-            <div class="modal-section">
-                <h3>Project Overview</h3>
-                <p>${project.fullDescription}</p>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Key Features</h3>
-                <ul class="modal-features-list">
-                    ${project.features.map((feature) => `<li>${feature}</li>`).join("")}
-                </ul>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Technology Stack</h3>
-                <div class="modal-tech-grid">
-                    ${project.technologies.map((tech) => `<span class="modal-tech-tag">${tech}</span>`).join("")}
-                </div>
-            </div>
-            
-            <div class="modal-section">
-                <h3>Project Metrics</h3>
-                <div class="modal-metrics-grid">
-                    ${Object.entries(project.metrics)
-                      .map(
-                        ([key, value]) => `
-                        <div class="metric-item">
-                            <div class="metric-label">${key}</div>
-                            <div class="metric-value">${value}</div>
-                        </div>
-                    `,
-                      )
-                      .join("")}
-                </div>
-            </div>
-            
-            <div class="modal-actions">
-                <a href="${project.demo}" class="btn btn-primary">Live Demo</a>
-                <a href="${project.github}" class="btn btn-secondary">View Code</a>
-                <button class="btn btn-outline" onclick="closeProjectModal()">Close</button>
-            </div>
-        </div>
-    `
+    `;
 
-  modal.style.display = "block"
-  document.body.style.overflow = "hidden"
-}
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    lenis.stop();
+};
 
-function closeProjectModal() {
-  modal.style.display = "none"
-  document.body.style.overflow = "auto"
-}
+window.closeProjectModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    lenis.start();
+};
 
-// Close modal when clicking outside of it
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeProjectModal()
-  }
-})
-
-// Close modal with escape key
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.style.display === "block") {
-    closeProjectModal()
-  }
-})
-
-if (modalClose) {
-  modalClose.addEventListener("click", closeProjectModal)
-}
-
-// Skill tag interactions
-document.querySelectorAll(".skill-tag").forEach((tag) => {
-  tag.addEventListener("click", () => {
-    tag.style.transform = "scale(0.95)"
-    setTimeout(() => {
-      tag.style.transform = "scale(1)"
-    }, 150)
-  })
-})
-
-// Add loading animation
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded")
-})
-
-// Smooth reveal animations for sections
-const revealSections = () => {
-  const sections = document.querySelectorAll("section")
-  const windowHeight = window.innerHeight
-
-  sections.forEach((section) => {
-    const sectionTop = section.getBoundingClientRect().top
-    const revealPoint = 150
-
-    if (sectionTop < windowHeight - revealPoint) {
-      section.classList.add("revealed")
+// Close modal on outside click
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        window.closeProjectModal();
     }
-  })
+});
+
+// Contact Form Handling (Preserved from original)
+const contactForm = document.getElementById("contact-form");
+const TELEGRAM_BOT_TOKEN = "7633063242:AAHKGy4bb84_nS47v3bN0OQzzT_o0dqCmNo";
+const TELEGRAM_CHAT_ID = "2142354455";
+
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const message = formData.get("message");
+
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+
+        submitButton.innerHTML = "<span>Sending...</span>";
+        submitButton.disabled = true;
+
+        const telegramMessage = (
+            `<b>New Contact Form Submission</b>\n\n` +
+            `<b>Name:</b> ${name}\n` +
+            `<b>Email:</b> ${email}\n` +
+            `<b>Message:</b>\n${message}`
+        ).trim();
+
+        fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CHAT_ID,
+                text: telegramMessage,
+                parse_mode: "HTML",
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.ok) {
+                    alert("Thank you! I'll get back to you soon.");
+                    contactForm.reset();
+                } else {
+                    alert("Error sending message. Please try again.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("Network error. Please try again.");
+            })
+            .finally(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            });
+    });
 }
 
-window.addEventListener("scroll", revealSections)
-window.addEventListener("load", revealSections)
+// Carousel Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
 
-// Auto-rotate projects (optional)
-let currentProject = 0
-const autoRotateProjects = () => {
-  setInterval(() => {
-    currentProject = (currentProject + 1) % projectSlides.length
-    projectNavBtns.forEach((btn) => btn.classList.remove("active"))
-    projectSlides.forEach((slide) => slide.classList.remove("active"))
+    if (!track || !prevBtn || !nextBtn) return;
 
-    projectNavBtns[currentProject].classList.add("active")
-    projectSlides[currentProject].classList.add("active")
-  }, 10000) // Change project every 10 seconds
-}
+    let currentIndex = 0;
 
-// Uncomment the line below to enable auto-rotation
-// autoRotateProjects();
+    function updateCarousel() {
+        const cards = Array.from(track.children);
+        if (cards.length === 0) return;
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        const moveAmount = cardWidth + gap;
+
+        // Calculate visible cards based on container width
+        const containerWidth = track.parentElement.getBoundingClientRect().width;
+        const visibleCards = Math.round(containerWidth / moveAmount);
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        // Clamp index
+        currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+
+        // Move track
+        track.style.transform = `translateX(-${currentIndex * moveAmount}px)`;
+
+        // Update buttons
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex++;
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex--;
+        updateCarousel();
+    });
+
+    // Handle resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(updateCarousel, 100);
+    });
+
+    // Initial setup
+    // Wait for layout to stabilize
+    setTimeout(updateCarousel, 100);
+});

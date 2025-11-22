@@ -1,469 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Syafa - Portfolio</title>
+    <title>Muhammad Syafa | Data & AI Engineer</title>
+    <meta name="description"
+        content="Portfolio of Muhammad Syafa, a Data Analyst & AI Engineer specializing in building intelligent data solutions.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+
 <body>
+    <!-- Background Canvas for Particles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Muhammad Syafa</a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">MS</span>
+            </a>
+
+            <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#projects" class="nav-link">Work</a>
+                <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="hamburger" id="hamburger">
+
+            <button class="menu-toggle" aria-label="Toggle Menu">
                 <span></span>
                 <span></span>
-                <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Muhammad Syafa</span>
-                </h1>
-                <p class="hero-subtitle">Data Analyst & AI Engineer</p>
-                <p class="hero-description">
-                    I build data solutions and applications that solve real-world problems. 
-                    Passionate about AI, data processing, and creating efficient systems.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-                <!-- Social Media Icons -->
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/msyafach" target="_blank" class="social-icon" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                            <rect x="2" y="9" width="4" height="12"/>
-                            <circle cx="4" cy="4" r="2"/>
-                        </svg>
-                    </a>
-                    <a href="https://msyafach.github.io/" target="_blank" class="social-icon" aria-label="GitHub">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:msyafach@gmail.com" class="social-icon" aria-label="Email">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </a>
-                    <a href="tel:+6285388495784" class="social-icon" aria-label="Phone">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-placeholder">
-                    <img src="profile-picture.png" alt="Muhammad Syafa profile picture" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <p class="section-subtitle">
-                Here are some of the projects I've worked on, showcasing my skills in data engineering, AI, and software development.
-            </p>
-            
-            <!-- Academic Style Project Layout -->
-            <div class="academic-projects-section">
-                <h3 class="academic-section-title">Featured Work</h3>
-                
-                <div class="academic-project-grid">
-                    <!-- Project 1 - Academic Style -->
-                    <div class="academic-project-card">
-                        <div class="academic-project-info">
-                            <div class="academic-project-meta">
-                                <div class="meta-item">
-                                    <h4>Project Title</h4>
-                                    <p>Murakabi Property Landing Page</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Year Accomplished</h4>
-                                    <p>2025</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Role/Position</h4>
-                                    <p>Front-End Developer & UI Designer (Vibe Coder)</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Publication Link</h4>
-                                    <a href="https://murakabiproperty.github.io/" target="_blank" rel="noopener noreferrer" class="publication-link">View Project Details</a>
-                                </div>
-                            </div>
-                            
-                            <div class="academic-project-description">
-                                <h4>Project Description</h4>
-                                <p>
-                                    Single-page responsive landing page built for Murakabi Property, a real-estate
-                                    agency in Indonesia. The page features an interactive card that showcase the property details.
-                                    This page has been created using HTML5, vanilla CSS, and vanilla JavaScript with help of AI assistants, Vercel V0 and Cursor, to create
-                                    not only an attractive landing page, but also a functional and responsive website.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="academic-project-visual">
-                            <div class="project-image-carousel">
-                                <img src="projects/project_1.png" alt="Murakabi Property landing page screenshot 1" />
-                            </div>
-                            <div class="project-counter">Project 1 of 3</div>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-label fade-in-up">Data Analyst & AI Engineer</div>
+                        <h1 class="hero-title">
+                            <span class="line fade-in-up">Building</span>
+                            <span class="line fade-in-up">Intelligent</span>
+                            <span class="line fade-in-up text-gradient">Solutions</span>
+                        </h1>
+                        <p class="hero-description fade-in-up">
+                            I transform complex data into actionable insights and build robust AI systems that solve
+                            real-world problems.
+                        </p>
+                        <div class="hero-actions fade-in-up">
+                            <a href="#projects" class="btn btn-primary">
+                                View Projects
+                                <i class="ph ph-arrow-right"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">Contact Me</a>
                         </div>
                     </div>
-                    
-                    <!-- Project 2 - Academic Style -->
-                    <div class="academic-project-card">
-                        <div class="academic-project-info">
-                            <div class="academic-project-meta">
-                                <div class="meta-item">
-                                    <h4>Project Title</h4>
-                                    <p></p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Year Accomplished</h4>
-                                    <p>2023</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Role/Position</h4>
-                                    <p>Database Architect & Analytics Developer</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Publication Link</h4>
-                                    <a href="#" class="publication-link">View Project Details</a>
-                                </div>
-                            </div>
-                            
-                            <div class="academic-project-description">
-                                <h4>Project Description</h4>
-                                <p>
-                                    Neo4j-powered graph database solution designed for complex financial audit processes, 
-                                    enabling comprehensive relationship mapping and fraud detection. The system implements 
-                                    advanced Cypher queries for pattern recognition, real-time anomaly detection algorithms, 
-                                    and interactive visualization dashboards for audit trail analysis and compliance reporting.
-                                </p>
-                            </div>
+                    <div class="hero-visual fade-in-up">
+                        <div class="profile-image-wrapper">
+                            <img src="profile-picture.png" alt="Muhammad Syafa" class="profile-img">
                         </div>
-                        
-                        <div class="academic-project-visual">
-                            <div class="project-image-placeholder">
-                                <div class="image-placeholder-content">
-                                    <h5>Graph Visualization Interface</h5>
-                                    <p>
-                                        Interactive network visualization showing entity relationships, transaction flows, 
-                                        and suspicious pattern detection. The interface demonstrates complex query 
-                                        capabilities and real-time fraud detection algorithms.
-                                    </p>
-                                    <div class="placeholder-mockup">
-                                        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-                                            <rect width="400" height="200" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
-                                            
-                                            <!-- Graph nodes -->
-                                            <circle cx="80" cy="60" r="15" fill="#000" opacity="0.8"/>
-                                            <text x="80" y="65" text-anchor="middle" fill="#fff" font-size="8">User</text>
-                                            
-                                            <circle cx="200" cy="50" r="15" fill="#666" opacity="0.8"/>
-                                            <text x="200" y="55" text-anchor="middle" fill="#fff" font-size="8">Txn</text>
-                                            
-                                            <circle cx="320" cy="60" r="15" fill="#000" opacity="0.8"/>
-                                            <text x="320" y="65" text-anchor="middle" fill="#fff" font-size="8">Account</text>
-                                            
-                                            <circle cx="120" cy="120" r="15" fill="#666" opacity="0.8"/>
-                                            <text x="120" y="125" text-anchor="middle" fill="#fff" font-size="8">Audit</text>
-                                            
-                                            <circle cx="280" cy="120" r="15" fill="#000" opacity="0.8"/>
-                                            <text x="280" y="125" text-anchor="middle" fill="#fff" font-size="8">Risk</text>
-                                            
-                                            <!-- Connections -->
-                                            <line x1="95" y1="60" x2="185" y2="50" stroke="#333" stroke-width="2"/>
-                                            <line x1="215" y1="50" x2="305" y2="60" stroke="#333" stroke-width="2"/>
-                                            <line x1="80" y1="75" x2="120" y2="105" stroke="#666" stroke-width="2"/>
-                                            <line x1="200" y1="65" x2="120" y2="105" stroke="#666" stroke-width="2"/>
-                                            <line x1="320" y1="75" x2="280" y2="105" stroke="#333" stroke-width="2"/>
-                                            <line x1="135" y1="120" x2="265" y2="120" stroke="#666" stroke-width="2"/>
-                                            
-                                            <!-- Query panel -->
-                                            <rect x="20" y="150" width="360" height="40" rx="4" fill="#000" opacity="0.1"/>
-                                            <text x="30" y="165" fill="#333" font-size="9" font-family="monospace">MATCH (u:User)-[:TRANSACTED]->(t:Transaction)</text>
-                                            <text x="30" y="180" fill="#333" font-size="9" font-family="monospace">WHERE t.amount > 10000 RETURN u, t</text>
-                                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title reveal-text">Selected Works</h2>
+                    <p class="section-subtitle reveal-text">A showcase of my technical capabilities and engineering
+                        projects.</p>
+                </div>
+
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" aria-label="Previous Project">
+                        <i class="ph ph-caret-left"></i>
+                    </button>
+
+                    <div class="carousel-track-container">
+                        <div class="carousel-track">
+                            <!-- Project 1 -->
+                            <article class="project-card" data-tilt>
+                                <div class="project-image">
+                                    <img src="projects/project_1.png" alt="Murakabi Property" loading="lazy">
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-tags">
+                                        <span>Frontend</span>
+                                        <span>UI/UX</span>
+                                    </div>
+                                    <h3 class="project-title">Murakabi Property</h3>
+                                    <p class="project-desc">Modern real-estate landing page with interactive property
+                                        showcase
+                                        and responsive design.</p>
+                                    <div class="project-links">
+                                        <a href="https://murakabiproperty.github.io/" target="_blank" class="link-item">
+                                            <i class="ph ph-arrow-up-right"></i> Live Demo
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="project-counter">Project 2 of 3</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 3 - Academic Style -->
-                    <div class="academic-project-card">
-                        <div class="academic-project-info">
-                            <div class="academic-project-meta">
-                                <div class="meta-item">
-                                    <h4>Project Title</h4>
-                                    <p>Sales Analytics & Business Intelligence Platform</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Year Accomplished</h4>
-                                    <p>2024</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Role/Position</h4>
-                                    <p>Data Scientist & BI Developer</p>
-                                </div>
-                                
-                                <div class="meta-item">
-                                    <h4>Publication Link</h4>
-                                    <a href="#" class="publication-link">View Project Details</a>
-                                </div>
-                            </div>
-                            
-                            <div class="academic-project-description">
-                                <h4>Project Description</h4>
-                                <p>
-                                    Comprehensive business intelligence platform processing millions of transaction records 
-                                    to generate actionable insights through advanced analytics and machine learning. 
-                                    Features real-time dashboard visualization, predictive forecasting models, customer 
-                                    segmentation analysis, and automated reporting systems with integration capabilities 
-                                    for enterprise CRM and ERP platforms.
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="academic-project-visual">
-                            <div class="project-image-placeholder">
-                                <div class="image-placeholder-content">
-                                    <h5>Analytics Dashboard Interface</h5>
-                                    <p>
-                                        Real-time business intelligence dashboard showcasing key performance indicators, 
-                                        trend analysis, and predictive analytics. The interface demonstrates advanced 
-                                        data visualization and interactive reporting capabilities.
-                                    </p>
-                                    <div class="placeholder-mockup">
-                                        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-                                            <rect width="400" height="200" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
-                                            
-                                            <!-- KPI Cards -->
-                                            <rect x="20" y="20" width="80" height="50" rx="4" fill="#000" opacity="0.1"/>
-                                            <text x="60" y="35" text-anchor="middle" fill="#333" font-size="8">Revenue</text>
-                                            <text x="60" y="50" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">$2.4M</text>
-                                            <text x="60" y="62" text-anchor="middle" fill="#666" font-size="7">+15%</text>
-                                            
-                                            <rect x="110" y="20" width="80" height="50" rx="4" fill="#666" opacity="0.1"/>
-                                            <text x="150" y="35" text-anchor="middle" fill="#333" font-size="8">Customers</text>
-                                            <text x="150" y="50" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">12.8K</text>
-                                            <text x="150" y="62" text-anchor="middle" fill="#666" font-size="7">+8%</text>
-                                            
-                                            <rect x="200" y="20" width="80" height="50" rx="4" fill="#000" opacity="0.1"/>
-                                            <text x="240" y="35" text-anchor="middle" fill="#333" font-size="8">Conversion</text>
-                                            <text x="240" y="50" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">3.2%</text>
-                                            <text x="240" y="62" text-anchor="middle" fill="#666" font-size="7">+0.5%</text>
-                                            
-                                            <!-- Chart Area -->
-                                            <rect x="20" y="90" width="360" height="90" rx="4" fill="#fff" stroke="#ddd"/>
-                                            <text x="30" y="105" fill="#333" font-size="9" font-weight="600">Sales Performance Trend</text>
-                                            
-                                            <!-- Trend Line -->
-                                            <polyline points="30,160 70,150 110,140 150,130 190,135 230,125 270,120 310,115 350,110" 
-                                                     fill="none" stroke="#000" stroke-width="2"/>
-                                            
-                                            <!-- Data Points -->
-                                            <circle cx="70" cy="150" r="2" fill="#000"/>
-                                            <circle cx="150" cy="130" r="2" fill="#000"/>
-                                            <circle cx="230" cy="125" r="2" fill="#000"/>
-                                            <circle cx="310" cy="115" r="2" fill="#000"/>
-                                            
-                                            <!-- Legend -->
-                                            <rect x="290" y="20" width="90" height="50" rx="4" fill="#fff" stroke="#ddd"/>
-                                            <text x="300" y="35" fill="#333" font-size="8">Forecast Accuracy</text>
-                                            <text x="300" y="50" fill="#000" font-size="10" font-weight="bold">92%</text>
-                                            <text x="300" y="62" fill="#666" font-size="7">ML Prediction</text>
-                                        </svg>
+                            </article>
+
+                            <!-- Project 2 -->
+                            <article class="project-card" data-tilt>
+                                <div class="project-image">
+                                    <!-- Placeholder for graph project -->
+                                    <div class="placeholder-visual graph-visual">
+                                        <div class="node n1"></div>
+                                        <div class="node n2"></div>
+                                        <div class="node n3"></div>
+                                        <div class="connection c1"></div>
+                                        <div class="connection c2"></div>
                                     </div>
                                 </div>
+                                <div class="project-content">
+                                    <div class="project-tags">
+                                        <span>Neo4j</span>
+                                        <span>Fraud Detection</span>
+                                    </div>
+                                    <h3 class="project-title">Audit Graph DB</h3>
+                                    <p class="project-desc">Advanced graph database solution for financial audit trails
+                                        and
+                                        fraud pattern detection.</p>
+                                    <div class="project-links">
+                                        <button class="link-item" onclick="openProjectModal(1)">
+                                            <i class="ph ph-info"></i> Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Project 3 -->
+                            <article class="project-card" data-tilt>
+                                <div class="project-image">
+                                    <!-- Placeholder for analytics project -->
+                                    <div class="placeholder-visual analytics-visual">
+                                        <div class="chart-bar b1"></div>
+                                        <div class="chart-bar b2"></div>
+                                        <div class="chart-bar b3"></div>
+                                        <div class="chart-line"></div>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <div class="project-tags">
+                                        <span>Data Science</span>
+                                        <span>BI</span>
+                                    </div>
+                                    <h3 class="project-title">Sales Intelligence</h3>
+                                    <p class="project-desc">Comprehensive BI platform processing millions of records for
+                                        predictive sales analytics.</p>
+                                    <div class="project-links">
+                                        <button class="link-item" onclick="openProjectModal(2)">
+                                            <i class="ph ph-info"></i> Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next" aria-label="Next Project">
+                        <i class="ph ph-caret-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills / About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2 class="section-title reveal-text">Technical Arsenal</h2>
+                        <p class="about-text reveal-text">
+                            My expertise lies in the intersection of Data Engineering and Artificial Intelligence.
+                            I build systems that not only process data but understand it.
+                        </p>
+
+                        <div class="skills-wrapper">
+                            <div class="skill-category">
+                                <h3>Languages & Core</h3>
+                                <div class="skill-tags">
+                                    <span>Python</span>
+                                    <span>SQL</span>
+                                    <span>JavaScript</span>
+                                    <span>Shell</span>
+                                </div>
                             </div>
-                            <div class="project-counter">Project 3 of 3</div>
+                            <div class="skill-category">
+                                <h3>Data & AI</h3>
+                                <div class="skill-tags">
+                                    <span>PostgreSQL</span>
+                                    <span>Neo4j</span>
+                                    <span>TensorFlow</span>
+                                    <span>AWS Textract</span>
+                                    <span>Apache Airflow</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <code>
+                                <span class="k">class</span> <span class="c">Engineer</span>:<br>
+                                &nbsp;&nbsp;<span class="k">def</span> <span class="f">__init__</span>(<span
+                                    class="s">self</span>):<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">self</span>.passion = <span
+                                    class="str">"Innovation"</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">self</span>.stack = [<span
+                                    class="str">"Data"</span>, <span class="str">"AI"</span>]<br>
+                                <br>
+                                &nbsp;&nbsp;<span class="k">def</span> <span class="f">build</span>(<span
+                                    class="s">self</span>):<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> <span class="str">"Scalable
+                                    Solutions"</span>
+                            </code>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Skills Section -->
-            <div class="skills-section">
-                <h3 class="skills-title">Technologies I Work With</h3>
-                <div class="skills-grid">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">Neo4j</span>
-                    <span class="skill-tag">Apache Airflow</span>
-                    <span class="skill-tag">AWS Textract</span>
-                    <span class="skill-tag">Shell Scripting</span>
-                    <span class="skill-tag">Data Science</span>
-                    <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">OCR</span>
-                    <span class="skill-tag">Graph Databases</span>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-header">
+                        <h2 class="section-title">Let's Collaborate</h2>
+                        <p>Have a project in mind? Let's turn your data into a competitive advantage.</p>
+                    </div>
+
+                    <div class="contact-grid">
+                        <div class="contact-methods">
+                            <a href="mailto:msyafach@gmail.com" class="contact-card">
+                                <i class="ph ph-envelope-simple"></i>
+                                <div>
+                                    <span class="label">Email Me</span>
+                                    <span class="value">msyafach@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/msyafach" target="_blank" class="contact-card">
+                                <i class="ph ph-linkedin-logo"></i>
+                                <div>
+                                    <span class="label">LinkedIn</span>
+                                    <span class="value">Connect professionally</span>
+                                </div>
+                            </a>
+                            <a href="https://msyafach.github.io/" target="_blank" class="contact-card">
+                                <i class="ph ph-github-logo"></i>
+                                <div>
+                                    <span class="label">GitHub</span>
+                                    <span class="value">Check my code</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                                <label for="message">Project Details</label>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span>Send Message</span>
+                                <i class="ph ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Project Modals -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div id="modal-body">
-                <!-- Modal content will be dynamically inserted here -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <p>&copy; 2024 Muhammad Syafa. Crafted with precision.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Project Modal (Hidden by default) -->
+    <div id="project-modal" class="modal-backdrop">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeProjectModal()">
+                <i class="ph ph-x"></i>
+            </button>
+            <div id="modal-content" class="modal-body">
+                <!-- Dynamic Content -->
             </div>
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Work Together</h2>
-            <p class="section-subtitle">
-                Interested in collaborating on a project or have a question? I'd love to hear from you!
-            </p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get in touch</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            <div>
-                                <strong>Email</strong>
-                                <a href="mailto:msyafach@gmail.com">msyafach@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect x="2" y="9" width="4" height="12"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
-                            <div>
-                                <strong>LinkedIn</strong>
-                                <a href="https://www.linkedin.com/in/msyafach" target="_blank">linkedin.com/in/msyafach</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                            </svg>
-                            <div>
-                                <strong>GitHub</strong>
-                                <a href="https://msyafach.github.io/" target="_blank">msyafach.github.io</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Social Media Icons -->
-                    <div class="social-media-section">
-                        <h4>Connect with me</h4>
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/msyafach" target="_blank" class="social-icon-circle" aria-label="LinkedIn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                    <rect x="2" y="9" width="4" height="12"/>
-                                    <circle cx="4" cy="4" r="2"/>
-                                </svg>
-                            </a>
-                            <a href="https://msyafach.github.io/" target="_blank" class="social-icon-circle" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                                </svg>
-                            </a>
-                            <a href="mailto:msyafach@gmail.com" class="social-icon-circle" aria-label="Email">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                                    <path d="M2 3l10 7L22 3"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Muhammad Syafa. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/msyafach" target="_blank" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                            <rect x="2" y="9" width="4" height="12"/>
-                            <circle cx="4" cy="4" r="2"/>
-                        </svg>
-                    </a>
-                    <a href="https://msyafach.github.io/" target="_blank" aria-label="GitHub">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:msyafach@gmail.com" aria-label="Email">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <path d="M2 3l10 7L22 3"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
